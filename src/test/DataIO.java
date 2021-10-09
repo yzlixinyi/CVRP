@@ -2,6 +2,7 @@ package test;
 
 import model.Problem;
 import model.Node;
+import model.Solution;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -45,6 +46,11 @@ public class DataIO {
             while ((line = br.readLine()) != null) {
                 if (line.startsWith("NAME")) {
                     p.name = line.split(" : ")[1];
+                } else if (line.startsWith("COMMENT")) {
+                    // COMMENT : (Augerat et al, Min no of trucks: 5, Optimal value: 784)
+                    String[] seq = line.split(",|:|\\)");
+                    p.optimal.nVehicle = Integer.parseInt(seq[seq.length - 3].trim());
+                    p.optimal.totalLength = Double.parseDouble(seq[seq.length - 1].trim());
                 } else if (line.startsWith("DIMENSION")) {
                     p.nNode = Integer.parseInt(line.split(" : ")[1]);
                 } else if (line.startsWith("CAPACITY")) {

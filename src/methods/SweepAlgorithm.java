@@ -1,6 +1,5 @@
 package methods;
 
-import model.Algorithm;
 import model.Problem;
 import model.Solution;
 
