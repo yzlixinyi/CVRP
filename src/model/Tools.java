@@ -31,11 +31,16 @@ public class Tools {
         }
         int xd = n1.x - n2.x;
         int yd = n1.y - n2.y;
-        return Math.sqrt(xd * xd + yd * yd);
+        return Math.sqrt((double) xd * xd + yd * yd);
     }
 
     public static String DecimalFormat1(double v) {
         DecimalFormat df = new DecimalFormat("0.0");
+        return df.format(v);
+    }
+
+    public static String DecimalFormat3(double v) {
+        DecimalFormat df = new DecimalFormat("0.000");
         return df.format(v);
     }
 

@@ -12,4 +12,24 @@ public class Route {
     public Route(int id) {
         vID = id;
     }
+
+    /**
+     * An initial allocation of one vehicle to each customer.
+     */
+    public Route(Node node) {
+        load = node.demand;
+        customers.add(node);
+    }
+
+    public double calRouteLength(Problem p) {
+        Node last = p.depot;
+        double l = 0;
+        for (Node node : customers) {
+            l += p.distMat[last.id][node.id];
+            last = node;
+        }
+        l += p.distMat[last.id][p.depot.id];
+        length = l;
+        return length;
+    }
 }

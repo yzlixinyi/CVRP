@@ -85,4 +85,8 @@ public class Problem {
                 nVeh == solution.nVehicle &&
                 sumD == solution.totalLength;
     }
+
+    public void calGap(Solution solution) {
+        solution.gap = (solution.totalLength - optimal.totalLength) / optimal.totalLength;
+    }
 }

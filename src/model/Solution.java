@@ -17,6 +17,12 @@ public class Solution {
      * routes
      */
     public List<Route> routeList = new ArrayList<>();
+    /**
+     * Computational time
+     */
+    public int time;
+
+    public double gap;
 
     public void print() {
         System.out.println("Use " + nVehicle + " vehicles. Total length " + (int) totalLength);
@@ -31,7 +37,7 @@ public class Solution {
     }
 
     public void write() throws IOException {
-        Tools.appendTxtLine("Use " + nVehicle + " vehicles. Total length " + (int) totalLength);
+        Tools.appendTxtLine("Use %d vehicles. Total length %d.".formatted(nVehicle, (int) totalLength));
         for (Route route : routeList) {
             StringBuilder sb = new StringBuilder();
             sb.append(route.vID).append("\tload ").append(route.load).append(",");
